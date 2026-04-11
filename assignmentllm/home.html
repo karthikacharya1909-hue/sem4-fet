@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            background: radial-gradient(circle at center, #111 0%, black 70%);
+            color: #ff69b4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { width: 4px; height: 4px; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 6px; height: 6px; left: 20%; animation-delay: 1s; }
+        .particle:nth-child(3) { width: 3px; height: 3px; left: 30%; animation-delay: 2s; }
+        .particle:nth-child(4) { width: 5px; height: 5px; left: 70%; animation-delay: 0.5s; }
+        .particle:nth-child(5) { width: 4px; height: 4px; left: 85%; animation-delay: 3s; }
+        .particle:nth-child(6) { width: 2px; height: 2px; left: 50%; animation-delay: 1.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+            gap: 3rem;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            text-align: center;
+            margin: 0;
+            animation: slideDown 1.5s ease-out forwards, neonPulse 2s ease-in-out infinite 2s;
+            text-shadow: 
+                0 0 5px #ff69b4,
+                0 0 10px #ff69b4,
+                0 0 20px #ff69b4,
+                0 0 40px #ff1493,
+                0 0 80px #ff1493;
+        }
+
+        /* Next Button */
+        .next-btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff69b4;
+            background: transparent;
+            border: 2px solid #ff69b4;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            text-shadow: 0 0 10px #ff69b4;
+            box-shadow: 
+                0 0 20px rgba(255, 105, 180, 0.3),
+                inset 0 0 20px rgba(255, 105, 180, 0.1);
+            animation: btnGlow 2s ease-in-out infinite alternate;
+        }
+
+        .next-btn:hover {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: black;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 10px 30px rgba(255, 105, 180, 0.6),
+                inset 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes btnGlow {
+            0% { box-shadow: 0 0 20px rgba(255, 105, 180, 0.3); }
+            100% { box-shadow: 0 0 30px rgba(255, 105, 180, 0.5); }
+        }
+
+        /* Fade transition */
+        .fade-out {
+            animation: fadeOut 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; }
+        }
+
+        @keyframes slideDown {
+            0% { transform: translateY(-200px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes neonPulse {
+            0%, 100% { 
+                text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 40px #ff1493;
+            }
+            50% { 
+                text-shadow: 0 0 10px #ff1493, 0 0 20px #ff1493, 0 0 40px #ff1493, 0 0 60px #ff69b4, 0 0 100px #ff69b4;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero { gap: 2rem; }
+            .next-btn { padding: 0.8rem 2rem; font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles">
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    </div>
+
+    <div class="hero">
+        <h1>Welcome to my page</h1>
+        <a href="about.html" class="next-btn" onclick="fadeTransition(this)">Next →</a>
+    </div>
+
+    <script>
+        function fadeTransition(btn) {
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = btn.getAttribute('href');
+            }, 500);
+        }
+    </script>
+</body>
+</html>
