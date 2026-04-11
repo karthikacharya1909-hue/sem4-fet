@@ -1,32 +1,91 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>Contact Karthik</title>
+<style>
+body {
+  margin: 0;
+  padding: 40px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  font-family: Arial;
+  color: white;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.form-box {
+  max-width: 500px;
+  margin: auto;
+  background: rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+h2 {
+  color: #ffd700;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  background: #4CAF50;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background: #45a049;
+  transform: scale(1.02);
+}
+
+textarea {
+  height: 120px;
+  resize: vertical;
+}
+</style>
+</head>
 <body>
-
-<h2>Contact Me</h2>
-
-<form action="/action_page.php">
-  <label for="fname">Full Name:</label><br>
-  <input type="text" id="fname" name="fname" placeholder="Enter your name">
-  <br><br>
-
-  <label for="email">Email Address:</label><br>
-  <input type="email" id="email" name="email" placeholder="example@mail.com">
-  <br><br>
-
-  <label for="Purpose">Choose the purpose:</label><br>
-  <select id="Purpose" name="Purpose">
-    <option value="Job Opportunities">Job Opportunities</option>
-    <option value="General Inquiry">General Inquiry</option>
-    <option value="Other">Other</option>
-  </select>
-  <br><br>
-
-  <label for="message">Message:</label><br>
-  <textarea id="message" name="message" rows="10" cols="30" placeholder="Type your message here..."></textarea>
-  <br><br>
-
-  <input type="submit" value="Send Message">
-</form>
-
+<div class="form-box">
+  <h2>Contact Me</h2>
+  
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <label>Full Name:</label>
+    <input type="text" name="name" placeholder="Your name" required>
+    
+    <label>Email:</label>
+    <input type="email" name="email" placeholder="your@email.com" required>
+    
+    <label>Reason:</label>
+    <select name="reason" required>
+      <option value="">Choose...</option>
+      <option>Job Talk</option>
+      <option>Question</option>
+      <option>Other</option>
+    </select>
+    
+    <label>Message:</label>
+    <textarea name="message" placeholder="Tell me more..." required></textarea>
+    
+    <input type="submit" value="Send Message">
+  </form>
+</div>
 </body>
 </html>
