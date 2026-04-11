@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Portfolio</title>
+<style>
+body {
+  margin: 0;
+  padding: 40px 20px;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+}
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.1);
+  padding: 50px 30px;
+  border-radius: 25px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+  animation: slideUp 1s ease-out;
+}
+h1 {
+  font-size: 3.8rem;
+  margin: 0 0 20px;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+h4 {
+  font-size: 1.7rem;
+  margin: 25px 0;
+  color: #ffd700;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+p {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  margin: 25px 0;
+  opacity: 0.95;
+}
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  margin-top: 40px;
+}
+a {
+  display: inline-block;
+  padding: 16px 35px;
+  background: linear-gradient(45deg, #4CAF50, #45a049);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 25px rgba(76,175,80,0.4);
+  transform: translateY(0);
+}
+a:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(76,175,80,0.6);
+  background: linear-gradient(45deg, #45a049, #4CAF50);
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes glow {
+  from { text-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+  to { text-shadow: 0 4px 25px rgba(255,215,0,0.5), 0 0 30px rgba(102,126,234,0.3); }
+}
+@media (max-width: 768px) {
+  h1 { font-size: 2.8rem; }
+  .container { padding: 30px 20px; margin: 20px; }
+  .links { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1 title="Name">Karthik Acharya</h1>
+  <h4 title="Degree">Bachelor in Computer Science</h4>
+  <p title="Interest">Learning web development and FET on GitHub. From Mūdbidri, Karnataka.</p>
+  <p title="Details">Location: Mūdbidri. College: Mangalore Institute of Technology.</p>
+  <div class="links">
+    <a href="https://karthikacharya1909-hue.github.io/sem4-fet/">Link to the home page</a>
+    <a href="https://github.com/kartik-acharya">Link to Github</a>
+  </div>
+</div>
+</body>
+</html>
